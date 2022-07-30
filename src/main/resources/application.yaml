@@ -1,1 +1,15 @@
-
+management:
+  server:
+    port: 1979
+    ssl:
+      enabled: true
+      key-store-type: jks
+      key-store: classpath:keystore/ad-management.jks
+      key-alias: wmoddev-management
+      key-store-password: 8d18db2b-8142-4d1b-922e-5f5c3858fd6d
+  endpoints:
+    web:
+      base-path: /ad-manegement
+      exposure:
+        include: '*'
+        
