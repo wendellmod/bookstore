@@ -22,7 +22,7 @@ management:
       key-store-password: 8d18db2b-8142-4d1b-922e-5f5c3858fd6d
   endpoints:
     web:
-      base-path: /ad-manegement
+      base-path: /ad-management
       exposure:
         include: '*'
 

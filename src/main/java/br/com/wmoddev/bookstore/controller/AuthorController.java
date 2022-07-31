@@ -12,23 +12,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.wmoddev.bookstore.dto.CreateBookDTO;
-import br.com.wmoddev.bookstore.service.BookService;
-import io.swagger.annotations.Api;
+import br.com.wmoddev.bookstore.dto.CreateAuthorDTO;
+import br.com.wmoddev.bookstore.service.AuthorService;
 
 @RestController
-@Api(value = "Book Controller")
-@RequestMapping("books")
-public class BookController {
+@RequestMapping("authors")
+public class AuthorController {
 	
-	private final BookService service;
+	private final AuthorService service;
 
-	public BookController(final BookService service) {
+	public AuthorController(final AuthorService service) {
 		this.service = service;
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> create(@RequestBody @Valid CreateBookDTO dto) {
+	public ResponseEntity<?> create(@RequestBody @Valid CreateAuthorDTO dto) {
 		return ResponseEntity.created(uriGenerate(service.create(dto))).body(null);
 	}
 	

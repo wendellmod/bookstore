@@ -23,7 +23,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public String create(CreateBookDTO dto) {
-		Book newBook = bookRepository.save(dto.build());
+		final Book newBook = bookRepository.save(dto.build());
 		return newBook.getId().toString();
 	}
 
