@@ -1,6 +1,7 @@
 package br.com.wmoddev.bookstore.dto;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -18,10 +19,14 @@ public class DetailBookDTO {
 	
 	private UUID id;
 	private String title;
+	private Set<String> authorsName;
 
 	public DetailBookDTO(Book book) {
 		this.id = book.getId();
 		this.title = book.getTitle();
+		this.authorsName = book.getAuthorBooks().stream()
+				.map(ab -> ab.getAuthor().getName())
+				.collect(Collectors.toSet());
 	}
 	
 	public static List<DetailBookDTO> toListDto(List<Book> books) {
