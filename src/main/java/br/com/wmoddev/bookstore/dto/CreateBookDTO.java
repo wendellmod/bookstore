@@ -1,5 +1,6 @@
 package br.com.wmoddev.bookstore.dto;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -15,9 +16,11 @@ import br.com.wmoddev.bookstore.entity.Book;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-@Getter @Setter @NoArgsConstructor
-public class CreateBookDTO {
+@Getter @Setter @NoArgsConstructor @ToString
+public class CreateBookDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@NotBlank
 	@Size(min = 1, max = 100)
