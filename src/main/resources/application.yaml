@@ -1,0 +1,42 @@
+server:
+  port: 8443
+  servlet:
+    context-path: /bookstore/v1
+  http:
+    port: 8080
+  ssl:
+    enabled: false
+    key-store-type: PKCS12
+    key-store: classpath:keystore/server-ssl.p12
+    key-alias: wmoddev-server
+    key-store-password: 976c3259-0583-4c07-a13f-884e84d1c8db
+
+management:
+  server:
+    port: 1979
+    ssl:
+      enabled: false
+      key-store-type: jks
+      key-store: classpath:keystore/ad-management.jks
+      key-alias: wmoddev-management
+      key-store-password: 8d18db2b-8142-4d1b-922e-5f5c3858fd6d
+  endpoints:
+    web:
+      base-path: /ad-management
+      exposure:
+        include: '*'
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: $postgres_169
