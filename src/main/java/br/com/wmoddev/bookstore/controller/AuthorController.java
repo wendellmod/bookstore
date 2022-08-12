@@ -27,7 +27,8 @@ public class AuthorController {
 	private final JmsTemplate jmsTemplate;
 	private final AuthorService service;
 
-	public AuthorController(final JmsTemplate jmsTemplate,final AuthorService service) {
+	public AuthorController(final JmsTemplate jmsTemplate,
+							final AuthorService service) {
 		this.jmsTemplate = jmsTemplate;
 		this.service = service;
 	}

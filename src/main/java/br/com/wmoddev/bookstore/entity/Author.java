@@ -32,7 +32,11 @@ public class Author extends BaseEntity implements Serializable, Comparable<Autho
 	public Author() { super(); }
 	
 	@Builder
-	public Author(UUID id, LocalDateTime creationDateTime, LocalDateTime modificationDateTime, String name, Set<AuthorBook> booksAuthor) {
+	public Author(UUID id,
+				  LocalDateTime creationDateTime,
+				  LocalDateTime modificationDateTime,
+				  String name,
+				  Set<AuthorBook> booksAuthor) {
 		super(id, creationDateTime, modificationDateTime);
 		this.name = name;
 		this.booksAuthor = booksAuthor;

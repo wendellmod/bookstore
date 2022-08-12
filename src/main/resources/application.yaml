@@ -1,3 +1,17 @@
+app:
+  name: Book Store Application
+  api:
+    title: Book Store API
+    version: 0.0.1
+    description: Book Store APIs description
+    base-package: br.com.wmoddev.bookstore.controller
+    contact:
+      name: Wendell Modesto Silva
+      url: https://github.com/wendellmod/bookstore
+      email: wendell.mod.silva@gmail.com
+    swagger:
+      enable: true
+
 server:
   port: 8443
   servlet:

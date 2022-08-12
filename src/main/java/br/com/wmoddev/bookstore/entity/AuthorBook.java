@@ -33,7 +33,9 @@ public class AuthorBook {
     private Book book;
     
     @Builder
-	public AuthorBook(AuthorBookKey id, Author author, Book book) {
+	public AuthorBook(AuthorBookKey id,
+					  Author author,
+					  Book book) {
 		this.id = id;
 		this.author = author;
 		this.book = book;
