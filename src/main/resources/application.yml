@@ -1,0 +1,30 @@
+server:
+  servlet:
+    context-path: /bookstore/v1
+
+management:
+  server:
+    port: 1979
+  endpoints:
+    web:
+      base-path: /ad-management
+      exposure:
+        include: '*'
+
+app:
+  name: Book Store Application
+  api:
+    version: 0.0.1
+    description: Book Store APIs description
+    base-package: br.com.wmoddev.bookstore.controller
+    contact:
+      name: Wendell Modesto Silva
+      url: https://github.com/wendellmod/bookstore
+      email: wendell.mod.silva@gmail.com
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: Book Store API
+    

@@ -1,25 +1,9 @@
-app:
-  name: Book Store Application
-  api:
-    title: Book Store API
-    version: 0.0.1
-    description: Book Store APIs description
-    base-package: br.com.wmoddev.bookstore.controller
-    contact:
-      name: Wendell Modesto Silva
-      url: https://github.com/wendellmod/bookstore
-      email: wendell.mod.silva@gmail.com
-    swagger:
-      enable: true
-
 server:
   port: 8443
-  servlet:
-    context-path: /bookstore/v1
   http:
     port: 8080
   ssl:
-    enabled: false
+    enabled: true
     key-store-type: PKCS12
     key-store: classpath:keystore/server-ssl.p12
     key-alias: wmoddev-server
@@ -27,30 +11,30 @@ server:
 
 management:
   server:
-    port: 1979
     ssl:
-      enabled: false
+      enabled: true
       key-store-type: jks
       key-store: classpath:keystore/ad-management.jks
       key-alias: wmoddev-management
       key-store-password: 8d18db2b-8142-4d1b-922e-5f5c3858fd6d
-  endpoints:
-    web:
-      base-path: /ad-management
-      exposure:
-        include: '*'
+
+app:
+  api:
+    title: Book Store API
+    swagger:
+      enable: false
 
 spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
     generate-ddl: true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: $postgres_169
+    url: <POSTGRE_URL>
+    username: <DB_USERNAME>
+    password: <DB_PASSWORD>

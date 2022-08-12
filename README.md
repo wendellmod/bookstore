@@ -2,7 +2,7 @@
 
 ## Swagger
 
-Swagger local: http://localhost:8443/bookstore/v1/swagger-ui/index.html
+Swagger local: http://localhost:8080/bookstore/v1/swagger-ui/index.html
 
 
 ## Actuator

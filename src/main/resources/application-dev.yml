@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+app:
+  api:
+    title: Book Store API - DEV
+    swagger:
+      enable: true
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: $postgres_169
