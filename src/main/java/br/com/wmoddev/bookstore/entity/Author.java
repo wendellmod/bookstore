@@ -2,7 +2,7 @@ package br.com.wmoddev.bookstore.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -26,7 +26,7 @@ public class Author extends BaseEntity implements Serializable, Comparable<Autho
 	private String name;
 	
     @OneToMany(mappedBy = "author")
-    Set<AuthorBook> booksAuthor;
+    List<AuthorBook> booksAuthor;
 	
 	@Deprecated
 	public Author() { super(); }
@@ -36,7 +36,7 @@ public class Author extends BaseEntity implements Serializable, Comparable<Autho
 				  LocalDateTime creationDateTime,
 				  LocalDateTime modificationDateTime,
 				  String name,
-				  Set<AuthorBook> booksAuthor) {
+				  List<AuthorBook> booksAuthor) {
 		super(id, creationDateTime, modificationDateTime);
 		this.name = name;
 		this.booksAuthor = booksAuthor;

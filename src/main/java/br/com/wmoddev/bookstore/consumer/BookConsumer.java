@@ -13,13 +13,13 @@ import br.com.wmoddev.bookstore.service.BookService;
 @Component
 public class BookConsumer {
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(BookConsumer.class);
+	
 	private final BookService service;
 	
     public BookConsumer(final BookService service) {
 		this.service = service;
 	}
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(BookConsumer.class);
 
     @JmsListener(destination = CREATE_BOOK, containerFactory = "defaultFactory")
     public void messageListener(CreateBookDTO dto) {
@@ -27,7 +27,7 @@ public class BookConsumer {
         
         String bookId = service.create(dto);
         
-        LOGGER.info("Message processed... ", bookId);
+        LOGGER.info("Message processed... book_id: " + bookId);
     }
 
 }

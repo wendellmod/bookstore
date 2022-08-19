@@ -6,8 +6,8 @@ import org.springframework.data.domain.Pageable;
 import br.com.wmoddev.bookstore.dto.CreateBookDTO;
 import br.com.wmoddev.bookstore.dto.DetailBookDTO;
 
-public interface BookService {
-
+public interface BookService extends MessageProviderService {
+	
 	String create(CreateBookDTO dto);
 
 	Page<DetailBookDTO> readAll(Pageable pageable);

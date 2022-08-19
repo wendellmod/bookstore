@@ -1,13 +1,16 @@
 package br.com.wmoddev.bookstore.dto;
 
 import java.io.Serializable;
-import java.util.List;
+import java.math.BigDecimal;
+import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.ISBN;
 
 import br.com.wmoddev.bookstore.entity.Author;
 import br.com.wmoddev.bookstore.entity.AuthorBook;
@@ -26,19 +29,53 @@ public class CreateBookDTO implements Serializable {
 	@Size(min = 1, max = 100)
 	private String title;
 	
+	@NotBlank
+	@Size(min = 1, max = 100)
+	private String subtitle;
+	
 	@NotNull
-	private List<UUID> idAuthors;
+	private BigDecimal price;
+	
+	@ISBN
+	@NotBlank
+	private String isbn;
+	
+	@NotNull
+	private Integer yearOfPublication;
+	
+	@NotNull
+	private Integer numberOfPages;
+	
+	@NotBlank
+	private String ageRating;
+	
+	@NotBlank
+	private String publishingCompany;
+	
+	@NotNull
+	private Integer quantityInStock;
+	
+	@NotNull
+	private Set<UUID> idAuthors;
 	
 	public Book build() {
 		return Book.builder()
 				.title(title)
+				.subtitle(subtitle)
+				.price(price)
+				.isbn(isbn)
+				.yearOfPublication(yearOfPublication)
+				.numberOfPages(numberOfPages)
+				.ageRating(ageRating)
+				.publishingCompany(publishingCompany)
+				.quantityInStock(quantityInStock)
 				.build();
 	}
 	
-	public List<AuthorBook> buildAuthorBooks(List<Author> authors, Book book) {
+	public Set<AuthorBook> buildAuthorBooks(Set<Author> authors, Book book) {
 		return authors.stream()
 				.map(a -> buildAuthorBook(a, book))
-				.collect(Collectors.toList());
+				.collect(Collectors.toSet());
 	}
 	
 	private AuthorBook buildAuthorBook(Author author, Book book) {
